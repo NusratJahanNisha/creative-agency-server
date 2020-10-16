@@ -15,19 +15,10 @@ app.use(express.static('serviceImage'));
 app.use(fileUpload());
 
 
-// const MongoClient = require('mongodb').MongoClient;
-// const uri = "mongodb+srv://<username>:<password>@cluster0.pgiio.mongodb.net/<dbname>?retryWrites=true&w=majority";
-// const client = new MongoClient(uri, { useNewUrlParser: true });
-// client.connect(err => {
-//   const collection = client.db("test").collection("devices");
-//   // perform actions on the collection object
-//   client.close();
-// });
-
-
 const MongoClient = require('mongodb').MongoClient;
 const uri = "mongodb+srv://nusrat:nisha005@cluster0.pgiio.mongodb.net/agency?retryWrites=true&w=majority";
 // const uri = "mongodb+srv://${process.env.DB_User}:{$process.env.DB_PASS}@cluster0.pgiio.mongodb.net/{$process.env.DB_NAME}?retryWrites=true&w=majority";
+
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 client.connect(err => {
   const reviewCollection = client.db("agency").collection("reviews");
